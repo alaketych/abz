@@ -1,0 +1,28 @@
+@import '../colors'
+
+.list
+    padding: 40px
+    display: grid
+    list-style: none
+    grid-row-gap: 60px
+    justify-items: center
+
+    grid-template-columns: repeat(3, 1fr)
+
+    .item
+        display: flex
+        max-width: 200px
+        align-items: center
+        flex-direction: column
+
+        &__photo
+            border-radius: 50%
+            border: 2px solid #ffffff
+
+        &__name
+            .subtitle
+                margin: 20px 0px 21px 0px
+
+        &__description
+            .description
+                color: #888888

@@ -1,0 +1,33 @@
+@import '../colors'
+
+.header
+    height: 60px
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .wrapper
+        display: flex
+        justify-content: space-between
+
+    .navigation
+        display: flex
+        list-style: none
+
+        &__item
+            margin-right: 30px
+            text-transform: none
+
+            &:last-child
+                margin-right: 0px
+
+            .link
+                color: #000
+                text-decoration: none
+
+                &:hover
+                    transition: all .2s
+                    color: $primary-color
+
+                &:active
+                    color: $secondary-color
