@@ -1,10 +1,16 @@
 @import 'colors'
 @import 'normalize'
 
+@import 'components/all'
+
 *, :after, :before
     -webkit-box-sizing: border-box
     box-sizing: border-box
     margin: 0px
+
+.wrapper
+    width: 100%
+    padding: 0 30px
 
 .white
     color: $primary-background
@@ -35,21 +41,8 @@
     color: #888888
     padding: 30px 0px 40px 0px
 
-.button
-    outline: 0
-    border: 0px
-    padding: 0px
-    margin-top: 40px
-    border-radius: 7px
-    background: transparent
-    color: $primary-color
-
-    &:hover
-        transition: all .2s
-        color: $primary-hover
-
 .red-background
-    padding: 13px 60px
+    padding: 7px 60px
     color: $primary-background
     background: $primary-color
 
@@ -65,92 +58,3 @@ section
     max-width: 1040px
     font-weight: 400
     font-family: 'Open Sans', sans-serif
-
-    .header
-        height: 60px
-        display: flex
-        align-items: center
-        justify-content: space-between
-
-        .navigation
-            display: flex
-            list-style: none
-
-            &__item
-                margin-right: 30px
-                text-transform: none
-
-                &:last-child
-                    margin-right: 0px
-
-                .link
-                    color: #000
-                    text-decoration: none
-
-                    &:hover
-                        transition: all .2s
-                        color: $primary-color
-
-                    &:active
-                        color: $secondary-color
-
-    .banner
-        background-image: url('../assets/images/banner-photo.jpg')
-        background-size: cover
-        background-position: center
-        background-repeat: no-repeat
-
-        padding: 115px 0px
-
-    .block
-        .info
-            margin-top: 80px
-            display: flex
-            align-items: stretch
-
-            .picture
-                padding: 30px
-
-            .more
-                display: flex
-                flex-direction: column
-                align-items: flex-start
-                align-content: space-between
-
-                .subtitle
-                    padding-bottom: 30px
-
-                .description
-                    text-align: justify
-
-        .list
-            padding: 40px
-            display: grid
-            list-style: none
-            grid-row-gap: 60px
-            justify-items: center
-
-            grid-template-columns: repeat(3, 1fr)
-
-            .item
-                display: flex
-                max-width: 200px
-                align-items: center
-                flex-direction: column
-
-                &__photo
-                    border-radius: 50%
-                    border: 2px solid #ffffff
-
-                &__name
-                    .subtitle
-                        margin: 20px 0px 21px 0px
-
-                &__description
-                    .description
-                        color: #888888
-
-    .footer
-        border-top: 1px solid $disbale-color
-        text-align: center
-        padding: 15px 0px
