@@ -1,5 +1,8 @@
 import React from 'react'
+import { Nav } from './_index'
 import logo from '../assets/images/logo.svg'
+
+const navigationItems = ['About Me', 'Relationships', 'Requirements', 'Users', 'Sign Up']
 
 export default function Header() {
     return (
@@ -7,27 +10,11 @@ export default function Header() {
             <div className="wrapper">
                 <div className="logo">
                     <a href="/" className="link">
-                    <img src={ logo } alt="TESTTASK" />
+                        <img src={ logo } alt="TESTTASK" />
                     </a>
                 </div>
 
-                <ul className="navigation">
-                    <li className="navigation__item">
-                    <a href="/" className="link">About me</a>
-                    </li>
-                    <li className="navigation__item">
-                    <a href="/" className="link">Relationships</a>
-                    </li>
-                    <li className="navigation__item">
-                    <a href="/" className="link">Requirements</a>
-                    </li>
-                    <li className="navigation__item">
-                    <a href="/" className="link">Users</a>
-                    </li>
-                    <li className="navigation__item">
-                    <a href="/" className="link">Sign Up</a>
-                    </li>
-                </ul>
+                <Nav items={ navigationItems }/>
             </div>
       </header>
     )

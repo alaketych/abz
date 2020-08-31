@@ -1,68 +1,41 @@
-import React from 'react'
-import userPhoto from '../assets/images/photo-cover.png'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function ListItems() {
-    return (
-        <ul className="list">
-            <li className="item">
-              <img className="item__photo" src={userPhoto} alt="user-1"/>
-              <div className="item__name">
-                <h3 className="subtitle">Maximillian</h3>
-              </div>
-              <div className="item__description">
-                <h3 className="description">Leading specialist of the Control Department controldepartment@gmail +380 50 678 03 24</h3>
-              </div>
-            </li>
+  const [users, setUsers] = useState(null)
 
-            <li className="item">
-              <img className="item__photo" src={userPhoto} alt="user-1"/>
-              <div className="item__name">
-                <h3 className="subtitle">Maximillian</h3>
-              </div>
-              <div className="item__description">
-                <h3 className="description">Leading specialist of the Control Department controldepartment@gmail +380 50 678 03 24</h3>
-              </div>
-            </li>
+  const URL = 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page'
 
-            <li className="item">
-              <img className="item__photo" src={userPhoto} alt="user-1"/>
-              <div className="item__name">
-                <h3 className="subtitle">Maximillian</h3>
-              </div>
-              <div className="item__description">
-                <h3 className="description">Leading specialist of the Control Department controldepartment@gmail +380 50 678 03 24</h3>
-              </div>
-            </li>
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(URL)
+      setUsers(response.users)
+    }
 
-            <li className="item">
-              <img className="item__photo" src={userPhoto} alt="user-1"/>
-              <div className="item__name">
-                <h3 className="subtitle">Maximillian</h3>
-              </div>
-              <div className="item__description">
-                <h3 className="description">Leading specialist of the Control Department controldepartment@gmail +380 50 678 03 24</h3>
-              </div>
-            </li>
+    console.log(fetchData())
+  }, [])
 
-            <li className="item">
-              <img className="item__photo" src={userPhoto} alt="user-1"/>
-              <div className="item__name">
-                <h3 className="subtitle">Maximillian</h3>
-              </div>
-              <div className="item__description">
-                <h3 className="description">Leading specialist of the Control Department controldepartment@gmail +380 50 678 03 24</h3>
-              </div>
-            </li>
+  return (
+    <ul className="list">
+      {
+        users && users.map(user => {
+          return (
+            <li className="item" key={ user.id }>
+              <img className="item__photo" src={ user.photo } alt="user-1"/>
 
-            <li className="item">
-              <img className="item__photo" src={userPhoto} alt="user-1"/>
               <div className="item__name">
-                <h3 className="subtitle">Maximillian</h3>
+                <h3 className="subtitle">{user.name}</h3>
               </div>
+
               <div className="item__description">
-                <h3 className="description">Leading specialist of the Control Department controldepartment@gmail +380 50 678 03 24</h3>
+                <h3 className="description">{user.position}</h3>
+                <h3 className="description">{user.email}</h3>
+                <h3 className="description">{user.phone}</h3>
               </div>
             </li>
-        </ul>
-    )
+          )
+        })
+      }
+    </ul>
+  )
 }
