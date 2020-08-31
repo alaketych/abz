@@ -1,13 +1,15 @@
 import React from 'react'
 import './sass/app.sass'
 
-import { Header, Button, Banner, Block, Info, ListItems, Footer } from './components/index'
+import { Header, Button, Banner, Block, Info, ListItems, Registration, Footer } from './components/_index'
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Header />
-      <Banner />
+      <Banner description="We kindly remind you that your test assignment should be submitted as a link to github/bitbucket repository. Please be patient, we consider and respond to every application that meets minimum requirements. We look forward to your submission. Good luck! The photo has to scale in the banner area on the different screens"
+              title="Test assignment for Frontend Developer position"
+      />
 
       <Block title="Let's get acquainted">
         <Info subtitle="I am cool frontend developer"
@@ -20,7 +22,7 @@ function App() {
              title="Our cheerful users"
              pseudoDescription="Attention! Sorting users by registration date">
 
-             <ListItems></ListItems>
+             <ListItems />
 
              <Button label="Show more"
                      className="red-background" />
@@ -30,13 +32,10 @@ function App() {
           title="Register to get a work"
           pseudoDescription="Attention! After successful registration and alert, update the list of users in the block from the top">
 
-          <Button label="Sign up now"
-                  className="red-background" />
+          <Registration />
       </Block>
 
       <Footer />
     </div>
   )
 }
-
-export default App
