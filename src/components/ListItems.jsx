@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import API from '../services/http-routing'
 
 export default function ListItems() {
-  const [users, setUsers] = useState(null)
+  const defaultUsers = [{
+    id: null,
+    photo: '',
+    position: 0,
+    name: 'asd',
+    email: '',
+    phone: '',
+  }]
 
-  const URL = 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page'
+  const [users, setUsers] = useState(defaultUsers)
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(URL)
-      setUsers(response.users)
-    }
-
-    console.log(fetchData())
+    displayUsers()
   }, [])
+
+  const displayUsers = () => {
+    API
+      .getUsers()
+      .then(response => {
+        setUsers(response.data.users)
+      })
+      .catch(event => console.log(event))
+  }
 
   return (
     <ul className="list">

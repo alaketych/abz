@@ -13,7 +13,7 @@ const specialization  = [
 const SignUpSchema = Yup.object().shape({
     name: Yup.string()
             .min(2, 'Name should have at least 2 symbols')
-            .max(60, 'Name is too long')
+            .max(60, 'Name must not exceed more than 60 symbols')
             .required('Required to fill'),
 
     email: Yup.string()
@@ -24,7 +24,10 @@ const SignUpSchema = Yup.object().shape({
             .min(8, 'Phone number has at least 8 digits')
             .required('Required to fill')
             .positive()
-            .integer()
+            .integer(),
+
+    radio: Yup.string()
+            .required('You have to choose one of position')
 })
 
 export default function Registration() {
@@ -42,7 +45,7 @@ export default function Registration() {
 
             onSubmit = {(values, { setSubmitting }) => {(
                 setTimeout(() => {
-                    console.log('Loggin in', values)
+                    console.log('Putted: ', values)
                 }, 500))
             }}
         >
@@ -100,7 +103,9 @@ export default function Registration() {
                             <RadioButton options={ specialization } />
 
                             <label htmlFor="upload">Photo</label>
+
                             <Field type="file" name="file"
+                                    className="file-input"
                                     onChange={ handleChange} />
 
                             <button type="submit"

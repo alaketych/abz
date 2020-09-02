@@ -10,6 +10,7 @@ export default function RadioButton({ options }) {
                         <div className="radio" key={ index }>
                             <input
                                 type="radio"
+                                name="position"
                                 id={ option.id }
                                 value={ option.value }
                             />
